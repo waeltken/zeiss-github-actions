@@ -1,8 +1,6 @@
 name: List files
 
 on:
-  push:
-    branches: [ "main" ]
   workflow_dispatch:
 
 jobs:
