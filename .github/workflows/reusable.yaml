@@ -30,6 +30,6 @@ jobs:
         run: echo "Hello, ${{ inputs.who-to-greet }}!"
       - name: Set outputs
         id: set-outputs
-        run: echo "greeting=Hello, ${{ inputs.who-to-greet }}" >> $GITHUB_ENV && echo "current-time=$(date -u +"%Y-%m-%dT%H:%M:%SZ")" >> $GITHUB_ENV
+        run: echo "greeting=Hello, ${{ inputs.who-to-greet }}" >> $GITHUB_OUTPUT && echo "current-time=$(date -u +"%Y-%m-%dT%H:%M:%SZ")" >> $GITHUB_OUTPUT
       - name: use outputs
         run: echo "The greeting is ${{ steps.set-outputs.outputs.greeting }} and the current time is ${{ steps.set-outputs.outputs.current-time }}"
