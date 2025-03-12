@@ -8,6 +8,13 @@ on:
         description: 'Who to greet'
         default: 'World'
         type: string
+    outputs:
+      greeting: 
+        description: 'The greeting'
+        value: 'Hello, World!'
+      current-time: 
+        description: 'The current time'
+        value: '2021-01-01T00:00:00Z'
   workflow_dispatch:
     inputs:
       who-to-greet:
@@ -21,3 +28,8 @@ jobs:
     steps:
       - name: Greet
         run: echo "Hello, ${{ inputs.who-to-greet }}!"
+      - name: Set outputs
+        id: set-outputs
+        run: echo "::set-output name=greeting::Hello, ${{ inputs.who-to-greet }}!" && echo "::set-output name=current-time::$(date)"
+      - name: use outputs
+        run: echo "The greeting is ${{ steps.set-outputs.outputs.greeting }} and the current time is ${{ steps.set-outputs.outputs.current-time }}"
