@@ -41,7 +41,7 @@ jobs:
     environment:
       name: prod
       url: https://github.com/waeltken/zeiss-github-actions/
-    if: github.events.inputs.environment == 'prod'
+    if: github.event.inputs.environment == 'prod'
     steps:
       - run: |
           echo "🚀 Step 1..."
