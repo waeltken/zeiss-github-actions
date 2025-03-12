@@ -11,10 +11,10 @@ on:
     outputs:
       greeting: 
         description: 'The greeting'
-        value: 'Hello, World!'
+        value: '${{ jobs.greet.outputs.greeting }}'
       current-time: 
         description: 'The current time'
-        value: '2021-01-01T00:00:00Z'
+        value: '${{ jobs.greet.outputs.current-time }}'
   workflow_dispatch:
     inputs:
       who-to-greet:
