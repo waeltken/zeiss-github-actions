@@ -25,6 +25,9 @@ on:
 jobs:
   greet:
     runs-on: ubuntu-latest
+    outputs:
+      greeting: ${{ steps.set-outputs.outputs.greeting }}
+      current-time: ${{ steps.set-outputs.outputs.current-time }}
     steps:
       - name: Greet
         run: echo "Hello, ${{ inputs.who-to-greet }}!"
